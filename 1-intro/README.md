@@ -3,24 +3,22 @@ Introduction to Node.js
 
 Goals:
 
-* Basic node.js project layout
-* Node.js modules
-* Setting up an express.js app
-* Integrating node.js with mongodb
+* what a basic node.js layout looks like (package.json, module.exports)
+* how to build a static express.js json api
 
 Homework
 --------
 
-Create a todo app that matches the following user stories.
+Create a rock, paper, scissors game with the following routes:
 
-* As a user, I can add a todo
-* As a user, I can mark a todo as complete (crossed out)
-* As a user, I can remove a todo
+* `/` links to `/weapons/rock`, `/weapons/paper`, `/weapons/scissors`
+* `/weapon/:name` will show the player's guess, computer's guess and whether or not the user won
 
 Bonus
 
-* Use redis or leveldb instead
-* Allow multiple browsers to update live with websockets (this one is probably super hard, we'll cover websockets later though so maybe come back to it)
+* Ask for user's name
+* Save results in MongoDB
+* Create a leaderboard page
 
 Suggested materials:
 
