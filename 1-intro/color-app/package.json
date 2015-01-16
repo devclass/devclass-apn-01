@@ -1,0 +1,6 @@
+{
+  "name": "color-app",
+  "dependencies": {
+    "colors": "*"
+  }
+}

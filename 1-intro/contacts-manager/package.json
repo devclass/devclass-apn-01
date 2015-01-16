@@ -1,0 +1,6 @@
+{
+  "name": "contacts-manager ",
+  "dependencies": {
+    "colors": "^1.0.3"
+  }
+}
