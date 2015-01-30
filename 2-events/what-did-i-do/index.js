@@ -1,4 +1,5 @@
 var request = require('request');
+var async = require('async');
 var http = request.defaults({
   json: true,
   headers: {
@@ -10,15 +11,26 @@ var http = request.defaults({
 http.get('https://api.github.com/users/dickeyxxx/events/public',
   function (err, _, events) {
   if (err) { throw err; }
-  events.forEach(function (event) {
+
+  var iteratorFn = function (event, callback) {
     if (event.type === 'PushEvent') {
       console.log(event.actor.login + " pushed a commit to " + event.repo.name);
       var url = 'https://api.github.com/repos/' + event.repo.name +
         '/git/commits/' + event.payload.head;
       http.get(url, function (err, _, commit) {
-        if (err) { throw err; }
+        if (err) { callback(err); }
         console.log(commit.message);
+        callback();
       });
+    } else {
+      callback();
     }
-  })
+  };
+
+  var doneFn = function (err) {
+    if (err) { console.error(err.toString()); }
+    console.log('done!');
+  };
+
+  async.eachSeries(events, iteratorFn, doneFn);
 });
