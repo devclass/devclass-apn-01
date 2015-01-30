@@ -1,4 +1,5 @@
 var request = require('request');
+var chalk = require('chalk');
 var async = require('async');
 var http = request.defaults({
   json: true,
@@ -10,20 +11,24 @@ var http = request.defaults({
 
 
 http.get('https://api.github.com/users/dickeyxxx/events/public', function (err, _, events) {
-  if (err) { throw err; }
+  if (err) { err.toString(); }
 
   async.eachSeries(events, function (event, callback) {
-    console.log(event.actor.login + ' did ' + event.type + ' on ' + event.repo.name);
     if (event.type === 'PushEvent') {
+      console.log(chalk.blue(event.actor.login) + ' did ' + event.type + ' on ' + event.repo.name);
       http.get('https://api.github.com/repos/' + event.repo.name + '/git/commits/' + event.payload.head, function (err, _, commit) {
-        if (err) { throw err; }
-        console.log(commit.message);
+        if (err) { callback(err); }
+        console.log(commit.message.trim());
         callback();
       });
     } else {
       callback();
     }
   }, function (err) {
+    if (err) {
+      console.error(err.toString());
+      process.exit(1);
+    }
     console.log('done');
   });
 });
