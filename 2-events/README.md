@@ -1,8 +1,24 @@
-Events Homework
-===============
+Resources
+=========
+
+* async.js https://github.com/caolan/async
+* request.js https://github.com/request/request
+* http://callbackhell.com/
+* What are callbacks? https://docs.nodejitsu.com/articles/getting-started/control-flow/what-are-callbacks
+* nodeschool.io async.js https://github.com/bulkan/async-you
+
+Easy homework
+=============
+
+Use more than one file to do this. You will probably need to use a callback on the file.
+
+Medium difficulty homework
+==========================
 
 Using Node.js and async.js, show the most recent contributors to a GitHub
 project based on commits along with basic profile information.
+
+Use more than one file and a callback across them.
 
 Example:
 
