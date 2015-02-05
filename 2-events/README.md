@@ -10,6 +10,15 @@ Resources
 Easy homework
 =============
 
+Show the basic info for a github repository:
+
+```
+$ node github-repo-info.js heroku/heroku
+Language: Ruby
+Watchers: 64
+Stars: 1089
+```
+
 Use more than one file to do this. You will probably need to use a callback on the file.
 
 Medium difficulty homework
