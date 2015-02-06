@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "async": "^0.9.0",
+    "bson": "^0.2.18",
+    "mongodb": "^1.4.30",
+    "mongoose": "^3.8.22",
+    "promised-mongo": "^0.11.1",
+    "q": "^1.1.2"
+  }
+}
