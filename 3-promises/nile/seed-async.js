@@ -16,6 +16,7 @@ async.waterfall([
   function (_db, callback) {
     console.log('connected to db');
     db = _db;
+    callback();
   },
   function (callback) {
     addBook('Bars in Los Angeles', 'dickeyxxx', callback);
