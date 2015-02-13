@@ -4,13 +4,9 @@ var Mongo = require('co-easymongo');
 var db = new Mongo({dbname: 'social-app'});
 var users = db.collection('users');
 
-function foo () {
-  return {users: users.count()};
-}
-
 app.use(function *() {
   this.body = yield {
-    users: foo(),
+    users: users.count(),
     count: users.find()
   }
 });
